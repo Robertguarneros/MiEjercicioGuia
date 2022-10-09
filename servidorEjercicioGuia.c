@@ -5,6 +5,8 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <stdio.h>
+#include <ctype.h>
+#include<stdbool.h>  
 
 int main(int argc, char *argv[])
 {
@@ -74,7 +76,7 @@ int main(int argc, char *argv[])
 				else
 					strcpy(respuesta, "NO");
 			}
-			else//decir si es alto 
+			else if (codigo==3)//decir si es alto 
 			{
 				p = strtok(NULL, "/");
 				float altura = atof(p);
@@ -82,6 +84,25 @@ int main(int argc, char *argv[])
 					sprintf(respuesta, "%s: eres alto", nombre);
 				else
 					sprintf(respuesta, "%s: no eres alto", nombre);
+			}
+			else if (codigo==4)//palindromo
+			{
+				bool palindromo=false;
+				int longitud_nombre = strlen(nombre);
+				for(int k=0;k<longitud_nombre;k++){
+					if(nombre[k]==nombre[longitud_nombre-k-1]){
+						palindromo=true;
+					}
+				}
+				sprintf("Tu nombre, %s, si es un palindromo",nombre);
+					
+			}
+			else if (codigo==5)//nombre en maysuculas
+			{
+				for (int j = 0; nombre[j] != '\0'; ++j){
+					nombre[j] = toupper(nombre[j]);
+				}
+				sprintf(respuesta, "%s", nombre);
 			}
 			
 			if (codigo !=0){
