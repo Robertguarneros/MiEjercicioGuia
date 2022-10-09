@@ -25,7 +25,7 @@ int main(int argc, char *argv[])
 	//htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
 	// escucharemos en el port 9050
-	serv_adr.sin_port = htons(9080);
+	serv_adr.sin_port = htons(9081);
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind");
 	//La cola de peticiones pendientes no podr? ser superior a 4
@@ -87,15 +87,17 @@ int main(int argc, char *argv[])
 			}
 			else if (codigo==4)//palindromo
 			{
-				bool palindromo=false;
+				bool palindromo=true;
 				int longitud_nombre = strlen(nombre);
 				for(int k=0;k<longitud_nombre;k++){
-					if(nombre[k]==nombre[longitud_nombre-k-1]){
-						palindromo=true;
+					if(nombre[k]!=nombre[longitud_nombre-k-1]){
+						palindromo=false;
 					}
 				}
-				sprintf("Tu nombre, %s, si es un palindromo",nombre);
-					
+				if(palindromo)
+					sprintf(respuesta,"Tu nombre, %s, si es un palindromo",nombre);
+				else
+					sprintf(respuesta,"Tu nombre, %s, no es un palindromo",nombre);					
 			}
 			else if (codigo==5)//nombre en maysuculas
 			{
