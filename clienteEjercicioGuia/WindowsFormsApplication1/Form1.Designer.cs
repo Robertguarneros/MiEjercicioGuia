@@ -32,6 +32,8 @@
             this.nombre = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.Mayusculas = new System.Windows.Forms.RadioButton();
+            this.Palindromo = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.AlturaBox = new System.Windows.Forms.TextBox();
             this.Altura = new System.Windows.Forms.RadioButton();
@@ -39,8 +41,8 @@
             this.button1 = new System.Windows.Forms.Button();
             this.Longitud = new System.Windows.Forms.RadioButton();
             this.Bonito = new System.Windows.Forms.RadioButton();
-            this.Palindromo = new System.Windows.Forms.RadioButton();
-            this.Mayusculas = new System.Windows.Forms.RadioButton();
+            this.contLbl = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +94,28 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Peticion";
+            // 
+            // Mayusculas
+            // 
+            this.Mayusculas.AutoSize = true;
+            this.Mayusculas.Location = new System.Drawing.Point(124, 207);
+            this.Mayusculas.Name = "Mayusculas";
+            this.Mayusculas.Size = new System.Drawing.Size(169, 17);
+            this.Mayusculas.TabIndex = 15;
+            this.Mayusculas.TabStop = true;
+            this.Mayusculas.Text = "Pon mi nombre en Mayusculas";
+            this.Mayusculas.UseVisualStyleBackColor = true;
+            // 
+            // Palindromo
+            // 
+            this.Palindromo.AutoSize = true;
+            this.Palindromo.Location = new System.Drawing.Point(124, 184);
+            this.Palindromo.Name = "Palindromo";
+            this.Palindromo.Size = new System.Drawing.Size(178, 17);
+            this.Palindromo.TabIndex = 14;
+            this.Palindromo.TabStop = true;
+            this.Palindromo.Text = "Dime si mi nombre es palindromo";
+            this.Palindromo.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -163,33 +187,33 @@
             this.Bonito.Text = "Dime si mi nombre es bonito";
             this.Bonito.UseVisualStyleBackColor = true;
             // 
-            // Palindromo
+            // contLbl
             // 
-            this.Palindromo.AutoSize = true;
-            this.Palindromo.Location = new System.Drawing.Point(124, 184);
-            this.Palindromo.Name = "Palindromo";
-            this.Palindromo.Size = new System.Drawing.Size(178, 17);
-            this.Palindromo.TabIndex = 14;
-            this.Palindromo.TabStop = true;
-            this.Palindromo.Text = "Dime si mi nombre es palindromo";
-            this.Palindromo.UseVisualStyleBackColor = true;
+            this.contLbl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.contLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contLbl.Location = new System.Drawing.Point(404, 252);
+            this.contLbl.Name = "contLbl";
+            this.contLbl.Size = new System.Drawing.Size(148, 92);
+            this.contLbl.TabIndex = 14;
             // 
-            // Mayusculas
+            // button4
             // 
-            this.Mayusculas.AutoSize = true;
-            this.Mayusculas.Location = new System.Drawing.Point(124, 207);
-            this.Mayusculas.Name = "Mayusculas";
-            this.Mayusculas.Size = new System.Drawing.Size(169, 17);
-            this.Mayusculas.TabIndex = 15;
-            this.Mayusculas.TabStop = true;
-            this.Mayusculas.Text = "Pon mi nombre en Mayusculas";
-            this.Mayusculas.UseVisualStyleBackColor = true;
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(389, 186);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(180, 58);
+            this.button4.TabIndex = 13;
+            this.button4.Text = "¿Cuántos servicios?";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 562);
+            this.Controls.Add(this.contLbl);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -215,6 +239,8 @@
         private System.Windows.Forms.RadioButton Altura;
         private System.Windows.Forms.RadioButton Mayusculas;
         private System.Windows.Forms.RadioButton Palindromo;
+        private System.Windows.Forms.Label contLbl;
+        private System.Windows.Forms.Button button4;
     }
 }
 

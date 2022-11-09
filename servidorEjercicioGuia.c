@@ -9,6 +9,11 @@
 #include<stdbool.h>  
 #include <pthread.h>
 
+int contador;
+
+//Estructura necesaria para acceso excluyente
+pthread_mutex_t mutex = PTHREAD_MUTEX_INITIALIZER;
+
 //miejercicio
 void* AtenderCliente(void* socket)
 {
@@ -88,10 +93,18 @@ void* AtenderCliente(void* socket)
 			}
 			sprintf(respuesta, "%s", nombre);
 		}
+		else if (codigo == 6)
+			sprintf(respuesta, "%d", contador);
 
 		if (codigo != 0) {
 			// Enviamos la respuesta
 			write(sock_conn, respuesta, strlen(respuesta));
+		}
+		if ((codigo == 1) || (codigo == 2) || (codigo == 3) || (codigo == 4) || (codigo == 5))
+		{
+			pthread_mutex_lock(&mutex); //No me interrumpas ahora
+			contador = contador + 1;
+			pthread_mutex_unlock(&mutex); //ya puedes interrumpirme
 		}
 	}
 	// Se acabo el servicio para este cliente

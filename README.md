@@ -3,4 +3,6 @@
     VersionConNuevoServicio
     VersionConConexionDesconexion
     VersionConcurrente
+    VersionConExclusionMutua
+
 
